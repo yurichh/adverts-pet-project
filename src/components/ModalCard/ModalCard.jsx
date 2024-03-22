@@ -6,20 +6,8 @@ import Reviews from 'components/Reviews/Reviews';
 import Booking from 'components/Booking/Booking';
 
 const ModalCard = ({ advertData, onClose }) => {
-  const {
-    gallery,
-    price,
-    name,
-    rating,
-    location,
-    description,
-    details,
-    adults,
-    transmission,
-    engine,
-    _id,
-    reviews,
-  } = advertData;
+  const { gallery, price, name, rating, location, description, reviews } =
+    advertData;
 
   const [selectedOption, setSelectedOption] = useState('features');
 
@@ -27,10 +15,14 @@ const ModalCard = ({ advertData, onClose }) => {
     <div className={styles.wrapper}>
       <div className={styles.topLine}>
         <h1 className={styles.name}>{name}</h1>
-        <div className={styles.closeContainer} onClick={onClose}>
+        <button
+          type="button"
+          className={styles.closeContainer}
+          onClick={onClose}
+        >
           <div className={styles.leftright}></div>
           <div className={styles.rightleft}></div>
-        </div>
+        </button>
       </div>
       <div className={styles.infoLine}>
         <button className={styles.ratingBtn} type="button">

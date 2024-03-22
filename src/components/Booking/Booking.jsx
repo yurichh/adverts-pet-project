@@ -12,7 +12,7 @@ const validationSchema = Joi.object({
   name: Joi.string()
     .min(3)
     .max(30)
-    .pattern(new RegExp('^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+$'))
+    .pattern(/^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+$/)
     .required(),
   email: Joi.string().email({
     minDomainSegments: 2,

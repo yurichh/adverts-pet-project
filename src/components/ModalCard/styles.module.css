@@ -49,12 +49,8 @@
 /* -----------------CLOSE BUTTON-------------------*/
 
 .closeContainer {
-  position: absolute;
   width: 30px;
   height: 30px;
-  cursor: pointer;
-  right: 0;
-  top: 14px;
 }
 
 .leftright {
