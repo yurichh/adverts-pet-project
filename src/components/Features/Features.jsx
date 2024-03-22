@@ -3,12 +3,6 @@ import sprite from '../../icons/icons.svg';
 
 const Features = ({ advertData }) => {
   const {
-    gallery,
-    price,
-    name,
-    rating,
-    location,
-    description,
     details,
     adults,
     transmission,
