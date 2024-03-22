@@ -23,10 +23,6 @@ const AdvertsWrapper = () => {
   const isLoading = useSelector(selectIsLoading);
   const isLastPage = useSelector(selectLastPage);
 
-  console.log('----------------');
-  console.log('adverts', '>>>', adverts);
-  console.log('----------------');
-
   return (
     <section className={styles.section}>
       {isLoading ? (
@@ -35,7 +31,7 @@ const AdvertsWrapper = () => {
         <>
           <ul className={styles.list}>
             {adverts.map(advert => (
-              <li className={styles.cardWrapper}>
+              <li className={styles.cardWrapper} key={advert._id}>
                 <AdvertItem advertData={advert} />
               </li>
             ))}
@@ -43,7 +39,9 @@ const AdvertsWrapper = () => {
           {!isLastPage && (
             <button
               type="button"
-              onClick={() => setCurrentPage(prev => prev + 1)}
+              onClick={() => {
+                setCurrentPage(prev => prev + 1);
+              }}
               className={styles.loadBtn}
             >
               Load more
