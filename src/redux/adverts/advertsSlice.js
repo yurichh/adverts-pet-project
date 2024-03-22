@@ -21,6 +21,14 @@ export const advertsSlice = createSlice({
     builder
       .addCase(fetchAdverts.pending, handlePending)
       .addCase(fetchAdverts.fulfilled, (state, action) => {
+        if (action.payload.firstPage)
+          return {
+            ...state,
+            items: action.payload.data,
+            isLoading: false,
+            error: null,
+            lastPage: action.payload.lastPage,
+          };
         return {
           ...state,
           items: [...state.items, ...action.payload.data],
