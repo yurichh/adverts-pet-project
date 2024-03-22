@@ -8,10 +8,20 @@ export const fetchAdverts = createAsyncThunk(
   'adverts/fetchAdverts',
   async (page, thunkAPI) => {
     try {
-      const allAdverts = await axios.get();
+      const params = {
+        form: '',
+        // інші параметри пошуку, якщо потрібно
+      };
+      const allAdverts = await axios.get('', { params });
       const total = allAdverts.data.length;
 
-      const { data } = await axios.get(`?page=${page}&limit=4`);
+      const { data } = await axios.get(`?page=${page}&limit=4`, {
+        params,
+      });
+
+      console.log('----------------');
+      console.log('data', '>>>', data);
+      console.log('----------------');
 
       return {
         data,
