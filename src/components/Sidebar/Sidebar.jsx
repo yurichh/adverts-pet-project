@@ -3,7 +3,14 @@ import styles from './styles.module.css';
 const Sidebar = () => {
   return (
     <aside className={styles.aside}>
-      <form action="submit" className={styles.form}>
+      <form
+        action="submit"
+        onSubmit={e => {
+          e.preventDefault();
+          console.log(e.target.elements);
+        }}
+        className={styles.form}
+      >
         <input
           type="text"
           name="location"
