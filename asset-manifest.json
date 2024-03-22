@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/adverts-pet-project/static/css/main.b0115ecb.css",
+    "main.js": "/adverts-pet-project/static/js/main.0a04dfa7.js",
+    "static/js/713.add7c1d1.chunk.js": "/adverts-pet-project/static/js/713.add7c1d1.chunk.js",
+    "static/css/558.0c045e13.chunk.css": "/adverts-pet-project/static/css/558.0c045e13.chunk.css",
+    "static/js/558.ede9391a.chunk.js": "/adverts-pet-project/static/js/558.ede9391a.chunk.js",
+    "static/css/137.8fe8ac08.chunk.css": "/adverts-pet-project/static/css/137.8fe8ac08.chunk.css",
+    "static/js/137.9513ae99.chunk.js": "/adverts-pet-project/static/js/137.9513ae99.chunk.js",
+    "static/css/110.20be22d8.chunk.css": "/adverts-pet-project/static/css/110.20be22d8.chunk.css",
+    "static/js/110.943c9907.chunk.js": "/adverts-pet-project/static/js/110.943c9907.chunk.js",
+    "static/js/442.2e14d6be.chunk.js": "/adverts-pet-project/static/js/442.2e14d6be.chunk.js",
+    "static/media/Inter-SemiBold.ttf": "/adverts-pet-project/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
+    "static/media/Inter-Medium.ttf": "/adverts-pet-project/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
+    "static/media/Inter-Regular.ttf": "/adverts-pet-project/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
+    "static/media/icons.svg": "/adverts-pet-project/static/media/icons.55cf8474fa5207298b72feb7eade3369.svg",
+    "index.html": "/adverts-pet-project/index.html",
+    "main.b0115ecb.css.map": "/adverts-pet-project/static/css/main.b0115ecb.css.map",
+    "main.0a04dfa7.js.map": "/adverts-pet-project/static/js/main.0a04dfa7.js.map",
+    "713.add7c1d1.chunk.js.map": "/adverts-pet-project/static/js/713.add7c1d1.chunk.js.map",
+    "558.0c045e13.chunk.css.map": "/adverts-pet-project/static/css/558.0c045e13.chunk.css.map",
+    "558.ede9391a.chunk.js.map": "/adverts-pet-project/static/js/558.ede9391a.chunk.js.map",
+    "137.8fe8ac08.chunk.css.map": "/adverts-pet-project/static/css/137.8fe8ac08.chunk.css.map",
+    "137.9513ae99.chunk.js.map": "/adverts-pet-project/static/js/137.9513ae99.chunk.js.map",
+    "110.20be22d8.chunk.css.map": "/adverts-pet-project/static/css/110.20be22d8.chunk.css.map",
+    "110.943c9907.chunk.js.map": "/adverts-pet-project/static/js/110.943c9907.chunk.js.map",
+    "442.2e14d6be.chunk.js.map": "/adverts-pet-project/static/js/442.2e14d6be.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0115ecb.css",
+    "static/js/main.0a04dfa7.js"
+  ]
+}
