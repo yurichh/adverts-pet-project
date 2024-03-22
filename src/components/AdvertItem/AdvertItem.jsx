@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './styles.module.css';
-import {
-  addToFavorite,
-  removeFromFavorite,
-} from '../../redux/adverts/operations';
-import { selectFavorites } from '../../redux/adverts/selectors';
-import sprite from '../../icons/icons.svg';
 import { useState } from 'react';
+
+import styles from './styles.module.css';
+import sprite from '../../icons/icons.svg';
+
 import Modal from 'components/Modal/Modal';
 import ModalCard from 'components/ModalCard/ModalCard';
+import { selectFavorites } from '../../redux/adverts/selectors';
+import { advertsSlice } from './../../redux/adverts/advertsSlice';
 
 const AdvertItem = ({ advertData }) => {
   const {
@@ -37,10 +36,10 @@ const AdvertItem = ({ advertData }) => {
   const dispatch = useDispatch();
   const toggleFav = () => {
     if (isFavorite) {
-      dispatch(removeFromFavorite(_id));
+      dispatch(advertsSlice.actions.removeFromFavorite(_id));
       return;
     }
-    dispatch(addToFavorite(advertData));
+    dispatch(advertsSlice.actions.addToFavorite(advertData));
   };
 
   return (

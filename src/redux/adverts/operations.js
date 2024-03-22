@@ -23,25 +23,3 @@ export const fetchAdverts = createAsyncThunk(
     }
   }
 );
-
-export const addToFavorite = createAsyncThunk(
-  'adverts/addAdvertToFavorite',
-  async (advertData, thunkAPI) => {
-    try {
-      return advertData;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-
-export const removeFromFavorite = createAsyncThunk(
-  'adverts/removeAdvertToFavorite',
-  async (advertId, thunkAPI) => {
-    try {
-      return advertId;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);

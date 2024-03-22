@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAdverts, addToFavorite, removeFromFavorite } from './operations';
+import { fetchAdverts } from './operations';
 
 const handlePending = state => ({ ...state, isLoading: true });
 const handleReject = (state, action) => ({
@@ -16,6 +16,16 @@ export const advertsSlice = createSlice({
     isLoading: false,
     error: null,
     lastPage: true,
+  },
+  reducers: {
+    addToFavorite: (state, action) => {
+      state.favorites.push(action.payload);
+    },
+    removeFromFavorite: (state, action) => {
+      state.favorites = state.favorites.filter(
+        item => item._id !== action.payload
+      );
+    },
   },
   extraReducers: builder =>
     builder
@@ -37,27 +47,5 @@ export const advertsSlice = createSlice({
           lastPage: action.payload.lastPage,
         };
       })
-      .addCase(fetchAdverts.rejected, handleReject)
-
-      .addCase(addToFavorite.pending, handlePending)
-      .addCase(addToFavorite.fulfilled, (state, action) => {
-        return {
-          ...state,
-          favorites: [...state.favorites, action.payload],
-          isLoading: false,
-          error: null,
-        };
-      })
-      .addCase(addToFavorite.rejected, handleReject)
-
-      .addCase(removeFromFavorite.fulfilled, (state, action) => {
-        return {
-          ...state,
-          favorites: state.favorites.filter(
-            item => item._id !== action.payload
-          ),
-          isLoading: false,
-          error: null,
-        };
-      }),
+      .addCase(fetchAdverts.rejected, handleReject),
 });
