@@ -7,7 +7,7 @@ const ErrorComponent = ({ error }) => {
         marginTop: 250,
       }}
     >
-      Ooops... We can't get any contacts
+      Ooops... We can't get any adverts
       <p style={{ marginTop: 30 }}>{error}</p>
     </div>
   );

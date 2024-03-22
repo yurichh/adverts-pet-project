@@ -1,0 +1,60 @@
+.wrapper {
+  width: 430px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 44px;
+}
+.listItem {
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: var(--block-features);
+  mix-blend-mode: multiply;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 125%;
+  gap: 8px;
+  font-weight: 500;
+}
+.listItemText::first-letter {
+  text-transform: capitalize;
+}
+.listIcon {
+  fill: var(--main);
+}
+.listIcon2 {
+  fill: none;
+  stroke: var(--main);
+}
+.title {
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 120%;
+}
+.hr {
+  color: var(--main);
+  opacity: 0.2;
+  margin-bottom: 24px;
+}
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.detailsItem {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  display: flex;
+  justify-content: space-between;
+}
+.detailOption {
+}
+.detailValue {
+}
+.detailValue::first-letter {
+  text-transform: capitalize;
+}

@@ -1,0 +1,207 @@
+.wrapper {
+  border-radius: 20px;
+  padding: 40px;
+  width: 982px;
+  height: 720px;
+  background: #ffffff;
+  color: var(--main);
+  overflow: overlay;
+  position: relative;
+}
+
+/* ----------------SCROLLBAR---------------*/
+
+.wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background: gainsboro;
+  border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
+}
+.wrapper::-webkit-scrollbar {
+  width: 0; /* Зробити скроллбар невидимим */
+}
+
+.wrapper:hover::-webkit-scrollbar {
+  width: 15px; /* Показати скроллбар при наведенні */
+}
+
+.wrapper:hover {
+  padding-right: 25px; /* Зменшення правого падінгу при з'яві скроллбара */
+}
+
+/*? --------------TOP LINE-----------------*/
+
+.topLine {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+.name {
+  margin-right: auto;
+}
+/* -----------------CLOSE BUTTON-------------------*/
+
+.closeContainer {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  right: 0;
+  top: 14px;
+}
+
+.leftright {
+  height: 4px;
+  width: 30px;
+  position: absolute;
+  background-color: var(--main);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: 0.2s ease-in;
+}
+
+.rightleft {
+  height: 4px;
+  width: 30px;
+  background-color: var(--main);
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease-in;
+}
+
+.closeContainer:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: var(--button);
+}
+.closeContainer:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: var(--button);
+}
+
+/*? --------------INFO LINE-----------------*/
+
+.infoLine {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 267px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.ratingBtn {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
+  cursor: pointer;
+}
+.ratingIcon {
+  fill: var(--rating);
+}
+.ratingText {
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  font-weight: 500;
+}
+.location {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.locationIcon {
+  fill: none;
+  stroke: var(--main);
+}
+.locationText {
+  font-size: 16px;
+}
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+}
+
+/*? --------------GALLERY-----------------*/
+
+.imageList {
+  height: 310px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.imageItem {
+  height: inherit;
+}
+.image {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+/*? --------------DESCRIPTION-----------------*/
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+/*? --------------OPTIONS-----------------*/
+.optionWrapper {
+  margin-bottom: 24px;
+}
+.optionRadio {
+  display: none;
+}
+.optionRadio:checked + .optionLabel {
+  color: red;
+  position: relative;
+}
+.optionRadio:checked + .optionLabel::before {
+  content: ' ';
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  height: 5px;
+  background: var(--button);
+  border-radius: 4px;
+}
+.optionLabel {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  margin-right: 40px;
+}
+.hr {
+  color: var(--main);
+  opacity: 0.2;
+  margin-bottom: 44px;
+}
+.featRevMenu {
+  width: 902px;
+  height: 532px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}

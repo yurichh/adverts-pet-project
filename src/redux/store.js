@@ -8,22 +8,20 @@ import {
   REHYDRATE,
   persistStore,
 } from 'redux-persist';
-import { contactsSlice } from './contacts/contactsSlice';
+import { advertsSlice } from './adverts/advertsSlice';
 import { filterSlice } from './filter/filterSlice';
-import { authSlice } from './auth/authSlice';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 
 /* _________________________________________ PERSIST ____________________________________________*/
-const authPersistConfig = {
-  key: 'auth',
+const advertsPersistConfig = {
+  key: 'adverts',
   storage,
-  whitelist: ['token'],
+  whitelist: ['favorites'],
 };
 const root = combineReducers({
-  contacts: contactsSlice.reducer,
   filter: filterSlice.reducer,
-  auth: persistReducer(authPersistConfig, authSlice.reducer),
+  adverts: persistReducer(advertsPersistConfig, advertsSlice.reducer),
 });
 
 /* _________________________________________ STORE ____________________________________________*/

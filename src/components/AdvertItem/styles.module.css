@@ -1,0 +1,122 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+}
+.topLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.name {
+  font-size: 24px;
+  line-height: 125%;
+}
+.price {
+  margin-left: auto;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+}
+.favBtn {
+  fill: none;
+  stroke: var(--main);
+  transition: 250ms ease-in-out;
+}
+.favorite {
+  fill: var(--button);
+  stroke: var(--button);
+}
+.secondLine {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.ratingBtn {
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  cursor: pointer;
+}
+.ratingIcon {
+  fill: var(--rating);
+  align-self: flex-start;
+}
+.ratingText {
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  font-weight: 500;
+}
+.location {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.locationIcon {
+  fill: none;
+  stroke: var(--main);
+}
+.locationText {
+  line-height: 150%;
+}
+.image {
+  width: 290px;
+  height: 310px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.listItem {
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: var(--block-features);
+  mix-blend-mode: multiply;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 125%;
+  gap: 8px;
+  font-weight: 500;
+}
+.listItemText::first-letter {
+  text-transform: capitalize;
+}
+.listIcon {
+  fill: var(--main);
+}
+.listIcon2 {
+  fill: none;
+  stroke: var(--main);
+}
+.showMore {
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  background: var(--button);
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
