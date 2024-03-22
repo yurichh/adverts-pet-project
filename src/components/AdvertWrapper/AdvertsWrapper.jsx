@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import { fetchAdverts } from '../../redux/adverts/operations';
-import { selectAdverts, selectIsLoading } from '../../redux/adverts/selectors';
+import {
+  selectAdverts,
+  selectIsLoading,
+  selectLastPage,
+} from '../../redux/adverts/selectors';
 import AdvertItem from '../AdvertItem/AdvertItem';
 import styles from './styles.module.css';
 
@@ -17,6 +21,7 @@ const AdvertsWrapper = () => {
 
   const adverts = useSelector(selectAdverts);
   const isLoading = useSelector(selectIsLoading);
+  const isLastPage = useSelector(selectLastPage);
 
   return (
     <section className={styles.section}>
@@ -24,18 +29,26 @@ const AdvertsWrapper = () => {
         <div className="loader"></div>
       ) : (
         adverts.length !== 0 && (
-          <ul className={styles.list}>
-            {adverts.map(advert => (
-              <li key={advert._id} className={styles.cardWrapper}>
-                <AdvertItem advertData={advert} />
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className={styles.list}>
+              {adverts.map(advert => (
+                <li className={styles.cardWrapper}>
+                  <AdvertItem advertData={advert} />
+                </li>
+              ))}
+            </ul>
+            {!isLastPage && (
+              <button
+                type="button"
+                onClick={() => setCurrentPage(prev => prev + 1)}
+                className={styles.loadBtn}
+              >
+                Load more
+              </button>
+            )}
+          </>
         )
       )}
-      <button type="button" onClick={() => setCurrentPage(prev => prev + 1)}>
-        Load more
-      </button>
     </section>
   );
 };

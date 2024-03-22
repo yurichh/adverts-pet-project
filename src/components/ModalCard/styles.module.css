@@ -84,13 +84,13 @@
 /*? --------------INFO LINE-----------------*/
 
 .infoLine {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  width: 267px;
   margin-bottom: 24px;
   font-weight: 500;
+}
+.ratLocWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
 }
 .ratingBtn {
   display: flex;
@@ -98,6 +98,7 @@
   align-items: baseline;
   gap: 4px;
   cursor: pointer;
+  margin-right: 16px;
 }
 .ratingIcon {
   fill: var(--rating);

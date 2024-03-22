@@ -38,6 +38,7 @@ button {
   color: var(--main);
   border: none;
   background: none;
+  font-family: var(--font-family);
 }
 body {
   padding: 0 64px;

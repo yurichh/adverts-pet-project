@@ -25,20 +25,22 @@ const ModalCard = ({ advertData, onClose }) => {
         </button>
       </div>
       <div className={styles.infoLine}>
-        <button className={styles.ratingBtn} type="button">
-          <svg width={16} height={16} className={styles.ratingIcon}>
-            <use xlinkHref={`${sprite}#icon-star`} />
-          </svg>
-          <p
-            className={styles.ratingText}
-          >{`${rating} (${reviews.length} reviews)`}</p>
-        </button>
-        <p className={styles.location}>
-          <svg width={16} height={16} className={styles.locationIcon}>
-            <use xlinkHref={`${sprite}#icon-map-pin`} />
-          </svg>
-          <p className={styles.locationText}>{location}</p>
-        </p>
+        <div className={styles.ratLocWrapper}>
+          <button className={styles.ratingBtn} type="button">
+            <svg width={16} height={16} className={styles.ratingIcon}>
+              <use xlinkHref={`${sprite}#icon-star`} />
+            </svg>
+            <p
+              className={styles.ratingText}
+            >{`${rating} (${reviews.length} reviews)`}</p>
+          </button>
+          <div className={styles.location}>
+            <svg width={16} height={16} className={styles.locationIcon}>
+              <use xlinkHref={`${sprite}#icon-map-pin`} />
+            </svg>
+            <p className={styles.locationText}>{location}</p>
+          </div>
+        </div>
         <p className={styles.price}>&euro;{price}.00</p>
       </div>
       <ul className={styles.imageList}>

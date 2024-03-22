@@ -15,6 +15,7 @@ export const advertsSlice = createSlice({
     favorites: [],
     isLoading: false,
     error: null,
+    lastPage: true,
   },
   extraReducers: builder =>
     builder
@@ -22,9 +23,10 @@ export const advertsSlice = createSlice({
       .addCase(fetchAdverts.fulfilled, (state, action) => {
         return {
           ...state,
-          items: [...state.items, ...action.payload],
+          items: [...state.items, ...action.payload.data],
           isLoading: false,
           error: null,
+          lastPage: action.payload.lastPage,
         };
       })
       .addCase(fetchAdverts.rejected, handleReject)

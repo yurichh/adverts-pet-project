@@ -8,8 +8,12 @@ export const fetchAdverts = createAsyncThunk(
   'adverts/fetchAdverts',
   async (page, thunkAPI) => {
     try {
+      const allAdverts = await axios.get();
+      const total = allAdverts.data.length;
+
       const { data } = await axios.get(`?page=${page}&limit=4`);
-      return data;
+
+      return { data, lastPage: Math.ceil(total / 4) === Number(page) };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

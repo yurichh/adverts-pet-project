@@ -65,20 +65,20 @@ const AdvertItem = ({ advertData }) => {
           </button>
         </div>
         <div className={styles.secondLine}>
-          <p className={styles.ratingBtn}>
+          <div className={styles.ratingBtn}>
             <svg width={16} height={16} className={styles.ratingIcon}>
               <use xlinkHref={`${sprite}#icon-star`} />
             </svg>
             <p
               className={styles.ratingText}
             >{`${rating} (${reviews.length} reviews)`}</p>
-          </p>
-          <p className={styles.location}>
+          </div>
+          <div className={styles.location}>
             <svg width={16} height={16} className={styles.locationIcon}>
               <use xlinkHref={`${sprite}#icon-map-pin`} />
             </svg>
             <p className={styles.locationText}>{location}</p>
-          </p>
+          </div>
         </div>
         <p className={styles.description}>{description}</p>
         <ul className={styles.list}>
