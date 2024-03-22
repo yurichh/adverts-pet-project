@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { fetchAdverts } from '../../redux/adverts/operations';
 import {
@@ -12,6 +12,8 @@ import styles from './styles.module.css';
 
 const AdvertsWrapper = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const advertsContainerRef = useRef(null);
+  const previousScrollPosition = useRef(0);
 
   const dispatch = useDispatch();
 
@@ -23,13 +25,22 @@ const AdvertsWrapper = () => {
   const isLoading = useSelector(selectIsLoading);
   const isLastPage = useSelector(selectLastPage);
 
+  const handleLoadMoreClick = () => {
+    setCurrentPage(prev => prev + 1);
+    previousScrollPosition.current = window.scrollY; // Зберігаємо поточну позицію прокрутки
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, previousScrollPosition.current); // Встановлюємо позицію прокрутки при оновленні компонента
+  }, [adverts]); // Запускаємо ефект, коли оновлюється список оголошень
+
   return (
     <section className={styles.section}>
       {isLoading ? (
         <div className="loader"></div>
       ) : (
         <>
-          <ul className={styles.list}>
+          <ul className={styles.list} ref={advertsContainerRef}>
             {adverts.map(advert => (
               <li className={styles.cardWrapper} key={advert._id}>
                 <AdvertItem advertData={advert} />
@@ -39,9 +50,7 @@ const AdvertsWrapper = () => {
           {!isLastPage && (
             <button
               type="button"
-              onClick={() => {
-                setCurrentPage(prev => prev + 1);
-              }}
+              onClick={handleLoadMoreClick}
               className={styles.loadBtn}
             >
               Load more
