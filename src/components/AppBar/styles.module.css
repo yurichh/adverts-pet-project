@@ -12,5 +12,12 @@
   font-size: 20px;
   border-radius: 5px;
   padding: 5px 10px;
-  box-shadow: 0 0 10px var(--text);
+  transition: 200ms ease;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.navLink:hover,
+.navLink:focus {
+  filter: hue-rotate(45deg);
+  transform: translate(-3px, -3px);
 }

@@ -23,31 +23,33 @@ const AdvertsWrapper = () => {
   const isLoading = useSelector(selectIsLoading);
   const isLastPage = useSelector(selectLastPage);
 
+  console.log('----------------');
+  console.log('adverts', '>>>', adverts);
+  console.log('----------------');
+
   return (
     <section className={styles.section}>
       {isLoading ? (
         <div className="loader"></div>
       ) : (
-        adverts.length !== 0 && (
-          <>
-            <ul className={styles.list}>
-              {adverts.map(advert => (
-                <li className={styles.cardWrapper}>
-                  <AdvertItem advertData={advert} />
-                </li>
-              ))}
-            </ul>
-            {!isLastPage && (
-              <button
-                type="button"
-                onClick={() => setCurrentPage(prev => prev + 1)}
-                className={styles.loadBtn}
-              >
-                Load more
-              </button>
-            )}
-          </>
-        )
+        <>
+          <ul className={styles.list}>
+            {adverts.map(advert => (
+              <li className={styles.cardWrapper}>
+                <AdvertItem advertData={advert} />
+              </li>
+            ))}
+          </ul>
+          {!isLastPage && (
+            <button
+              type="button"
+              onClick={() => setCurrentPage(prev => prev + 1)}
+              className={styles.loadBtn}
+            >
+              Load more
+            </button>
+          )}
+        </>
       )}
     </section>
   );

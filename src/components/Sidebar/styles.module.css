@@ -1,0 +1,81 @@
+.aside {
+  width: 360px;
+  padding: 0 24px;
+}
+.filtersTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.locationInput {
+  border-radius: 10px;
+  width: 100%;
+  height: 56px;
+  background: var(--inputs);
+  border: none;
+  padding: 18px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+.fieldset {
+  border: none;
+}
+.legend {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+}
+.hr {
+  background-color: var(--main);
+  opacity: 0.2;
+  margin: 24px 0;
+}
+.inputList {
+  display: flex;
+  gap: 10px 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  width: 100%;
+}
+.inputList > li {
+  width: calc((100% - 16px) / 3);
+}
+.inputLabel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  height: 95px;
+  font-weight: 500;
+  text-align: center;
+  transition: 200ms ease;
+}
+.input {
+  display: none;
+}
+.input:checked + .inputLabel {
+  border-color: var(--button);
+}
+.searchBtn {
+  display: block;
+  margin-top: 32px;
+  border-radius: 200px;
+  padding: 16px 60px;
+  background: var(--button);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+}

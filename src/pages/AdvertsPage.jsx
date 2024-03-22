@@ -1,9 +1,9 @@
-import Sidebar from './../components/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 import AdvertsWrapper from '../components/AdvertWrapper/AdvertsWrapper';
 
 const ContactsPage = () => {
   return (
-    <div style={{ display: 'flex', gap: '0 64px' }}>
+    <div style={{ display: 'flex', gap: '0 40px' }}>
       <Sidebar />
       <AdvertsWrapper />
     </div>

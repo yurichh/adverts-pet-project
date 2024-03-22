@@ -1,0 +1,91 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #f4f4f4;
+  padding: 100px 0 80px 0;
+  text-align: center;
+  box-shadow: 0 10px 30px -10px var(--text);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.heroWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.heroText {
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+  color: var(--text);
+}
+
+.heroLink {
+  margin: 0 auto;
+  width: 400px;
+  display: block;
+  margin-top: 32px;
+  border-radius: 200px;
+  padding: 16px 20px;
+  background: var(--button);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  transition: 250ms ease;
+  text-decoration: none;
+}
+
+.heroLink:hover {
+  box-shadow: 0 0 30px -10px var(--text);
+}
+
+/* Features Section */
+.features {
+  padding: 100px 0;
+}
+
+.featuresWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.featuresTitle {
+  font-size: 3em;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.feature {
+  width: calc((100% - 80px) / 3);
+  flex: 1 1 300px;
+  text-align: center;
+  box-shadow: 0 0 30px -10px var(--text);
+  border-radius: 20px;
+  padding: 20px 25px;
+}
+
+.featureTitle {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.featureText {
+  font-size: 1rem;
+  color: var(--text);
+  width: 75%;
+  margin: 0 auto;
+}
