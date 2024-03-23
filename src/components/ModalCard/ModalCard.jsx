@@ -1,15 +1,34 @@
 import styles from './styles.module.css';
 import sprite from '../../icons/icons.svg';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
 import Booking from 'components/Booking/Booking';
 
-const ModalCard = ({ advertData, onClose }) => {
+const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
   const { gallery, price, name, rating, location, description, reviews } =
     advertData;
 
+  const [needScroll, setNeedScroll] = useState(scrollToReview);
+
   const [selectedOption, setSelectedOption] = useState('features');
+
+  useEffect(() => {
+    if (needScroll) {
+      setSelectedOption('reviews');
+      scrollToReviews();
+    }
+
+    return () => {
+      setNeedScroll(false);
+    };
+  }, [needScroll]);
+
+  const reviewsRef = useRef(null);
+
+  const scrollToReviews = () => {
+    reviewsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -26,7 +45,11 @@ const ModalCard = ({ advertData, onClose }) => {
       </div>
       <div className={styles.infoLine}>
         <div className={styles.ratLocWrapper}>
-          <button className={styles.ratingBtn} type="button">
+          <button
+            className={styles.ratingBtn}
+            type="button"
+            onClick={() => setNeedScroll(true)}
+          >
             <svg width={16} height={16} className={styles.ratingIcon}>
               <use xlinkHref={`${sprite}#icon-star`} />
             </svg>
@@ -59,28 +82,31 @@ const ModalCard = ({ advertData, onClose }) => {
           id="features"
           defaultChecked
           className={styles.optionRadio}
-          onClick={() => setSelectedOption('features')}
+          onChange={() => setSelectedOption('features')}
         ></input>
         <label htmlFor="features" className={styles.optionLabel}>
           Features
         </label>
         <input
+          checked={selectedOption === 'reviews'}
           type="radio"
           name="option"
           id="reviews"
           className={styles.optionRadio}
-          onClick={() => setSelectedOption('reviews')}
+          onChange={() => setSelectedOption('reviews')}
         ></input>
         <label htmlFor="reviews" className={styles.optionLabel}>
           Reviews
         </label>
       </div>
       <hr className={styles.hr} />
-      <div className={styles.featRevMenu}>
+      <div className={styles.featRevMenu} ref={reviewsRef}>
         {selectedOption === 'features' ? (
           <Features advertData={advertData} />
         ) : (
-          <Reviews reviews={reviews} />
+          <div>
+            <Reviews reviews={reviews} />
+          </div>
         )}
         <Booking />
       </div>

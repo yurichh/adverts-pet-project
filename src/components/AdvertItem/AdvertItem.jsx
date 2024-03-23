@@ -26,12 +26,15 @@ const AdvertItem = ({ advertData }) => {
   } = advertData;
 
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => {
-    setShowModal(prev => !prev);
+  const onCLose = () => {
+    setToReview(false);
+    setShowModal(false);
   };
 
   const favorites = useSelector(selectFavorites);
   const isFavorite = favorites.some(item => item._id === _id);
+
+  const [toReview, setToReview] = useState(false);
 
   const dispatch = useDispatch();
   const toggleFav = () => {
@@ -64,14 +67,21 @@ const AdvertItem = ({ advertData }) => {
           </button>
         </div>
         <div className={styles.secondLine}>
-          <div className={styles.ratingBtn}>
+          <button
+            onClick={() => {
+              setToReview(true);
+              setShowModal(true);
+            }}
+            type="button"
+            className={styles.ratingBtn}
+          >
             <svg width={16} height={16} className={styles.ratingIcon}>
               <use xlinkHref={`${sprite}#icon-star`} />
             </svg>
             <p
               className={styles.ratingText}
             >{`${rating} (${reviews.length} reviews)`}</p>
-          </div>
+          </button>
           <div className={styles.location}>
             <svg width={16} height={16} className={styles.locationIcon}>
               <use xlinkHref={`${sprite}#icon-map-pin`} />
@@ -123,12 +133,20 @@ const AdvertItem = ({ advertData }) => {
             </li>
           )}
         </ul>
-        <button type="button" className={styles.showMore} onClick={toggleModal}>
+        <button
+          type="button"
+          className={styles.showMore}
+          onClick={() => setShowModal(true)}
+        >
           Show more
         </button>
         {showModal && (
-          <Modal onClose={toggleModal}>
-            <ModalCard advertData={advertData} onClose={toggleModal} />
+          <Modal onClose={onCLose}>
+            <ModalCard
+              advertData={advertData}
+              onClose={onCLose}
+              scrollToReview={toReview}
+            />
           </Modal>
         )}
       </div>
