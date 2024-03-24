@@ -27,12 +27,12 @@ const AdvertsWrapper = () => {
 
   const handleLoadMoreClick = () => {
     setCurrentPage(prev => prev + 1);
-    previousScrollPosition.current = window.scrollY; // Зберігаємо поточну позицію прокрутки
+    previousScrollPosition.current = window.scrollY;
   };
 
   useEffect(() => {
-    window.scrollTo(0, previousScrollPosition.current); // Встановлюємо позицію прокрутки при оновленні компонента
-  }, [adverts]); // Запускаємо ефект, коли оновлюється список оголошень
+    window.scrollTo(0, previousScrollPosition.current);
+  }, [adverts]);
 
   return (
     <section className={styles.section}>

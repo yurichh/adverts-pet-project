@@ -22,7 +22,6 @@
 .favBtn {
   fill: none;
   stroke: var(--main);
-  transition: 250ms ease-in-out;
 }
 .favorite {
   fill: var(--button);
@@ -63,6 +62,8 @@
 .locationIcon {
   fill: none;
   stroke: var(--main);
+  position: relative;
+  top: 2px;
 }
 .locationText {
   line-height: 150%;
@@ -111,6 +112,7 @@
   stroke: var(--main);
 }
 .showMore {
+  border: 0.15em solid transparent;
   border-radius: 200px;
   width: 166px;
   height: 56px;
@@ -119,4 +121,12 @@
   line-height: 150%;
   letter-spacing: -0.01em;
   color: #fff;
+  transition: 250ms ease;
+  font-weight: 500;
+}
+.showMore:hover,
+.showMore:focus {
+  background: transparent;
+  color: inherit;
+  border: 0.15em solid var(--button);
 }

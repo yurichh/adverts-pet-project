@@ -78,7 +78,7 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
       <p
         onClick={() => setShowText(prev => !prev)}
         className={
-          showText
+          !showText
             ? styles.description
             : `${styles.description} ${styles.fullDescr}`
         }
@@ -90,7 +90,7 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
           type="radio"
           name="option"
           id="features"
-          defaultChecked
+          checked={selectedOption === 'features'}
           className={styles.optionRadio}
           onChange={() => setSelectedOption('features')}
         ></input>

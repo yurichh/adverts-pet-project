@@ -51,10 +51,6 @@
   display: flex;
   justify-content: space-between;
 }
-.detailOption {
-}
-.detailValue {
-}
 .detailValue::first-letter {
   text-transform: capitalize;
 }

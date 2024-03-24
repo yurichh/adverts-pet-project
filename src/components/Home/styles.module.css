@@ -42,7 +42,7 @@
   font-size: 24px;
   letter-spacing: 0.1em;
   color: #fff;
-  transition: 250ms ease;
+  transition: 0.3s ease;
   text-decoration: none;
 }
 
@@ -67,6 +67,9 @@
   margin-bottom: 50px;
   text-align: center;
   width: 100%;
+}
+.featuresTitle > span {
+  color: var(--button);
 }
 
 .feature {

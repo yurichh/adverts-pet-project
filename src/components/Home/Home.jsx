@@ -19,7 +19,9 @@ const Home = () => {
 
       <section className={styles.features}>
         <div className={styles.featuresWrapper}>
-          <h2 className={styles.featuresTitle}>Why Choose Us?</h2>
+          <h2 className={styles.featuresTitle}>
+            Why Choose <span>Us</span> ?
+          </h2>
           <div className={styles.feature}>
             <h3 className={styles.featureTitle}>Quality Campers</h3>
             <p className={styles.featureText}>

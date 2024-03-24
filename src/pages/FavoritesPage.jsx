@@ -1,26 +1,7 @@
-import { useSelector } from 'react-redux';
-import { selectFavorites } from '../redux/adverts/selectors';
-import AdvertItem from 'components/AdvertItem/AdvertItem';
+import Favorites from 'components/Favorites/Favorites';
 
 const FavoritesPage = () => {
-  const favorites = useSelector(selectFavorites);
-  return favorites.length === 0 ? (
-    <div style={{}}>Oooops... No favorites here </div>
-  ) : (
-    <ul
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 20,
-        maxWidth: 888,
-        padding: 20,
-      }}
-    >
-      {favorites.map(item => (
-        <AdvertItem advertData={item} key={item._id} />
-      ))}
-    </ul>
-  );
+  return <Favorites />;
 };
 
 export default FavoritesPage;

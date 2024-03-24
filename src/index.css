@@ -1,5 +1,6 @@
 :root {
   --button: #e44848;
+  --button-hf: #d84343;
   --main: #101828;
   --inputs: #f7f7f7;
   --block-features: #f2f4f7;
@@ -76,8 +77,9 @@ ul {
   border-radius: 50%;
   display: inline-block;
   position: fixed;
-  top: 45%;
-  left: 45%;
+  position: absolute;
+  top: 43%;
+  left: 43%;
   border: 8px solid;
   border-color: #101828 #101828 transparent;
   box-sizing: border-box;
