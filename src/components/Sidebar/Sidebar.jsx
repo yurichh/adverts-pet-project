@@ -47,12 +47,15 @@ const Sidebar = () => {
         }}
         className={styles.form}
       >
-        <input
-          type="text"
-          name="location"
-          className={styles.locationInput}
-          placeholder="Location"
-        />
+        <label style={{ marginLeft: 5 }}>
+          Location
+          <input
+            type="text"
+            name="location"
+            className={styles.locationInput}
+            placeholder="Location"
+          />
+        </label>
         <p className={styles.filtersTitle}>Filters</p>
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>Vehicle equipment</legend>
