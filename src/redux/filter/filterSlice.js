@@ -4,7 +4,7 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState: {
     type: '',
-    equipment: [],
+    equipment: ['radio', 'kitchen'],
     location: '',
   },
   reducers: {
@@ -17,7 +17,7 @@ export const filterSlice = createSlice({
     changeEquipment(state, action) {
       return {
         ...state,
-        equipment: [...state.equipment, ...action.payload],
+        equipment: action.payload,
       };
     },
     changeLocation(state, action) {
@@ -29,4 +29,5 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { changeFilter } = filterSlice.actions;
+export const { changeType, changeEquipment, changeLocation } =
+  filterSlice.actions;

@@ -9,7 +9,11 @@
   padding: 24px;
   width: 888px;
 }
-
+.noAdverts {
+  text-align: center;
+  margin-top: 300px;
+  font-size: 30px;
+}
 .list {
   display: flex;
   flex-direction: column;

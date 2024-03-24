@@ -14,6 +14,13 @@ const Features = ({ advertData }) => {
     tank,
     consumption,
   } = advertData;
+
+  const formattingForm = () => {
+    if (form === 'panelTruck') return 'Panel Truck';
+    if (form === 'fullyIntegrated') return 'Fully Integrated';
+    return form;
+  };
+
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
@@ -88,7 +95,7 @@ const Features = ({ advertData }) => {
       <ul className={styles.detailsList}>
         <li className={styles.detailsItem}>
           <p className={styles.detailOption}>Form</p>
-          <p className={styles.detailValue}>{form}</p>
+          <p className={styles.detailValue}>{formattingForm()}</p>
         </li>
         <li className={styles.detailsItem}>
           <p className={styles.detailOption}>Length</p>

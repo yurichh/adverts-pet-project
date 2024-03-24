@@ -1,38 +1,50 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
-import { fetchAdverts } from '../../redux/adverts/operations';
-import {
-  selectAdverts,
-  selectIsLoading,
-  selectLastPage,
-} from '../../redux/adverts/selectors';
 import AdvertItem from '../AdvertItem/AdvertItem';
 import styles from './styles.module.css';
+import { fetchAdverts } from 'components/services/advertsServices';
+import { useSelector } from 'react-redux';
+import {
+  selectEquipment,
+  selectLocation,
+  selectType,
+} from '../../redux/filter/selectors';
 
 const AdvertsWrapper = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const advertsContainerRef = useRef(null);
-  const previousScrollPosition = useRef(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [adverts, setAdverts] = useState([]);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAdverts(currentPage));
-  }, [currentPage, dispatch]);
-
-  const adverts = useSelector(selectAdverts);
-  const isLoading = useSelector(selectIsLoading);
-  const isLastPage = useSelector(selectLastPage);
-
-  const handleLoadMoreClick = () => {
-    setCurrentPage(prev => prev + 1);
-    previousScrollPosition.current = window.scrollY;
-  };
+  const form = useSelector(selectType);
+  const location = useSelector(selectLocation);
+  const equipment = useSelector(selectEquipment);
 
   useEffect(() => {
-    window.scrollTo(0, previousScrollPosition.current);
-  }, [adverts]);
+    async function fetchData() {
+      const data = await fetchAdverts();
+      setAdverts(data);
+    }
+    setIsLoading(true);
+    fetchData();
+    setIsLoading(false);
+  }, []);
+
+  const filteredAdverts = adverts.filter(advert => {
+    // Перевіряємо тип
+    if (form !== '' && advert.form !== form) return false;
+
+    // Перевіряємо обладнання
+    if (equipment.length > 0) {
+      for (const item of equipment) {
+        if (!advert.details[item]) return false;
+      }
+    }
+    // Перевіряємо місце розташування
+    return !(
+      location !== '' &&
+      !advert.location.toLowerCase().includes(location.toLowerCase())
+    );
+  });
 
   return (
     <section className={styles.section}>
@@ -40,21 +52,16 @@ const AdvertsWrapper = () => {
         <div className="loader"></div>
       ) : (
         <>
-          <ul className={styles.list} ref={advertsContainerRef}>
-            {adverts.map(advert => (
-              <li className={styles.cardWrapper} key={advert._id}>
-                <AdvertItem advertData={advert} />
-              </li>
-            ))}
-          </ul>
-          {!isLastPage && (
-            <button
-              type="button"
-              onClick={handleLoadMoreClick}
-              className={styles.loadBtn}
-            >
-              Load more
-            </button>
+          {filteredAdverts.length === 0 ? (
+            <div className={styles.noAdverts}>Oooops... No adverts here</div>
+          ) : (
+            <ul className={styles.list}>
+              {filteredAdverts.map(advert => (
+                <li className={styles.cardWrapper} key={advert._id}>
+                  <AdvertItem advertData={advert} />
+                </li>
+              ))}
+            </ul>
           )}
         </>
       )}

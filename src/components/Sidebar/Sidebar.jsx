@@ -1,14 +1,49 @@
 import styles from './styles.module.css';
 import sprite from '../../icons/icons.svg';
+import {
+  changeEquipment,
+  changeLocation,
+  changeType,
+} from '../../redux/filter/filterSlice';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const Sidebar = () => {
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedEquipment, setSelectedEquipment] = useState([]);
+
+  const handleTypeChange = e => setSelectedType(e.target.value);
+  const handleEquipmentChange = e => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedEquipment(prevState => [...prevState, value]);
+    } else {
+      setSelectedEquipment(prevState =>
+        prevState.filter(item => item !== value)
+      );
+    }
+  };
+
+  const dispatch = useDispatch();
+
+  const setFilters = location => {
+    dispatch(changeEquipment(selectedEquipment));
+    dispatch(changeType(selectedType));
+    dispatch(changeLocation(location));
+  };
+
+  const resetFilters = () => {
+    setSelectedEquipment([]);
+    setSelectedType('');
+  };
+
   return (
     <aside className={styles.aside}>
       <form
         action="submit"
         onSubmit={e => {
+          setFilters(e.target.elements[0].value);
           e.preventDefault();
-          console.log(e.target.elements);
         }}
         className={styles.form}
       >
@@ -26,12 +61,14 @@ const Sidebar = () => {
             <li className={styles.inputItem}>
               <input
                 type="checkbox"
-                id="ac"
+                id="airConditioner"
                 name="equipment"
-                value="ac"
+                value="airConditioner"
                 className={styles.input}
+                onChange={handleEquipmentChange}
               />
-              <label htmlFor="ac" className={styles.inputLabel}>
+
+              <label htmlFor="airConditioner" className={styles.inputLabel}>
                 <svg width={32} height={32} className={styles.listIcon}>
                   <use xlinkHref={`${sprite}#icon-AC`} />
                 </svg>
@@ -45,6 +82,7 @@ const Sidebar = () => {
                 name="equipment"
                 value="radio"
                 className={styles.input}
+                onChange={handleEquipmentChange}
               />
               <label htmlFor="radio" className={styles.inputLabel}>
                 <svg width={32} height={32} className={styles.listIcon2}>
@@ -60,6 +98,7 @@ const Sidebar = () => {
                 name="equipment"
                 value="kitchen"
                 className={styles.input}
+                onChange={handleEquipmentChange}
               />
               <label htmlFor="kitchen" className={styles.inputLabel}>
                 <svg width={32} height={32} className={styles.listIcon2}>
@@ -71,12 +110,13 @@ const Sidebar = () => {
             <li>
               <input
                 type="checkbox"
-                id="tv"
+                id="TV"
                 name="equipment"
-                value="tv"
+                value="TV"
                 className={styles.input}
+                onChange={handleEquipmentChange}
               />
-              <label htmlFor="tv" className={styles.inputLabel}>
+              <label htmlFor="TV" className={styles.inputLabel}>
                 <svg width={32} height={32} className={styles.listIcon2}>
                   <use xlinkHref={`${sprite}#icon-TV`} />
                 </svg>
@@ -90,6 +130,7 @@ const Sidebar = () => {
                 name="equipment"
                 value="shower"
                 className={styles.input}
+                onChange={handleEquipmentChange}
               />
               <label htmlFor="shower" className={styles.inputLabel}>
                 <svg width={32} height={32} className={styles.listIcon2}>
@@ -107,27 +148,29 @@ const Sidebar = () => {
             <li>
               <input
                 type="radio"
-                id="van"
+                id="panelTruck"
                 name="type"
-                value="van"
+                value="panelTruck"
                 className={styles.input}
+                onChange={handleTypeChange}
               />
-              <label htmlFor="van" className={styles.inputLabel}>
+              <label htmlFor="panelTruck" className={styles.inputLabel}>
                 <svg width={40} height={28} className={styles.listIcon}>
                   <use xlinkHref={`${sprite}#icon-van`} />
                 </svg>
-                Van
+                Panel Truck
               </label>
             </li>
             <li>
               <input
                 type="radio"
-                id="fully"
+                id="fullyIntegrated"
                 name="type"
-                value="fully"
+                value="fullyIntegrated"
                 className={styles.input}
+                onChange={handleTypeChange}
               />
-              <label htmlFor="fully" className={styles.inputLabel}>
+              <label htmlFor="fullyIntegrated" className={styles.inputLabel}>
                 <svg width={40} height={28} className={styles.listIcon}>
                   <use xlinkHref={`${sprite}#icon-fully`} />
                 </svg>
@@ -141,6 +184,7 @@ const Sidebar = () => {
                 name="type"
                 value="alcove"
                 className={styles.input}
+                onChange={handleTypeChange}
               />
               <label htmlFor="alcove" className={styles.inputLabel}>
                 <svg width={40} height={28} className={styles.listIcon}>
@@ -151,6 +195,15 @@ const Sidebar = () => {
             </li>
           </ul>
         </fieldset>
+        <button
+          type="button"
+          onClick={e => {
+            e.target.form.reset();
+            resetFilters();
+          }}
+        >
+          Clear filters
+        </button>
         <button className={styles.searchBtn}>Search</button>
       </form>
     </aside>
