@@ -2,10 +2,29 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const filterSlice = createSlice({
   name: 'filter',
-  initialState: '',
+  initialState: {
+    type: '',
+    equipment: [],
+    location: '',
+  },
   reducers: {
-    changeFilter(state, action) {
-      return action.payload;
+    changeType(state, action) {
+      return {
+        ...state,
+        type: action.payload,
+      };
+    },
+    changeEquipment(state, action) {
+      return {
+        ...state,
+        equipment: [...state.equipment, ...action.payload],
+      };
+    },
+    changeLocation(state, action) {
+      return {
+        ...state,
+        location: action.payload,
+      };
     },
   },
 });
