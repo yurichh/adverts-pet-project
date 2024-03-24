@@ -11,7 +11,6 @@ import {
 } from '../../redux/filter/selectors';
 
 const AdvertsWrapper = () => {
-  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [adverts, setAdverts] = useState([]);
 
