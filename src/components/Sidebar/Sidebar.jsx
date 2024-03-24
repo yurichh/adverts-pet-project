@@ -11,6 +11,7 @@ import { useState } from 'react';
 const Sidebar = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedEquipment, setSelectedEquipment] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState('');
 
   const handleTypeChange = e => setSelectedType(e.target.value);
   const handleEquipmentChange = e => {
@@ -26,15 +27,16 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
 
-  const setFilters = location => {
+  const setFilters = () => {
     dispatch(changeEquipment(selectedEquipment));
     dispatch(changeType(selectedType));
-    dispatch(changeLocation(location));
+    dispatch(changeLocation(selectedLocation));
   };
 
   const resetFilters = () => {
     setSelectedEquipment([]);
     setSelectedType('');
+    setSelectedLocation('');
   };
 
   return (
@@ -42,7 +44,7 @@ const Sidebar = () => {
       <form
         action="submit"
         onSubmit={e => {
-          setFilters(e.target.elements[0].value);
+          setFilters();
           e.preventDefault();
         }}
         className={styles.form}
@@ -54,6 +56,7 @@ const Sidebar = () => {
             name="location"
             className={styles.locationInput}
             placeholder="Location"
+            onChange={e => setSelectedLocation(e.target.value)}
           />
         </label>
         <p className={styles.filtersTitle}>Filters</p>
