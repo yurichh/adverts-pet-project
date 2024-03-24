@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
 import Booking from 'components/Booking/Booking';
+import Modal from 'components/Modal/Modal';
 
 const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
   const { gallery, price, name, rating, location, description, reviews } =
@@ -29,6 +30,19 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
 
   const scrollToReviews = () => {
     reviewsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState('');
+
+  const openModal = photo => {
+    setSelectedPhoto(photo);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedPhoto('');
+    setModalIsOpen(false);
   };
 
   return (
@@ -70,11 +84,36 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
       <ul className={styles.imageList}>
         {gallery.length > 0 &&
           gallery.map(photo => (
-            <li className={styles.imageItem} key={photo}>
-              <img src={photo} alt={name} className={styles.image} />
+            <li
+              className={styles.imageItem}
+              key={photo}
+              onClick={() => openModal(photo)}
+            >
+              <img src={photo} alt={photo} className={styles.image} />
             </li>
           ))}
       </ul>
+      {modalIsOpen && (
+        <Modal onClose={closeModal}>
+          <div style={{ position: 'relative', borderRadius: 50 }}>
+            <img src={selectedPhoto} alt={`Full Size ${selectedPhoto}`} />
+            <button
+              type="button"
+              onClick={closeModal}
+              style={{
+                position: 'absolute',
+                top: 20,
+                right: 20,
+                borderRadius: '50%',
+              }}
+              className={styles.closeContainer}
+            >
+              <div className={styles.leftright}></div>
+              <div className={styles.rightleft}></div>
+            </button>
+          </div>
+        </Modal>
+      )}
       <p
         onClick={() => setShowText(prev => !prev)}
         className={

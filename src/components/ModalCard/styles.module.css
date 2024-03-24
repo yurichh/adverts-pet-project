@@ -131,23 +131,50 @@
 
 /*? --------------GALLERY-----------------*/
 
+/* Стилізація контейнера зі скроллбаром */
 .imageList {
   height: 310px;
-  width: 100%;
+  width: auto;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
+  white-space: nowrap;
+}
+
+/* Стилізація самого скроллбару */
+.imageList::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Стилізація треку скроллбару */
+.imageList::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+/* Стилізація "палички" скроллбару */
+.imageList::-webkit-scrollbar-thumb {
+  background-color: gainsboro;
+  border-radius: 4px;
+}
+
+/* Колір палички при наведенні */
+.imageList::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text);
 }
 .imageItem {
   height: inherit;
+  flex: 0 0 auto;
 }
+
 .image {
-  width: 100%;
+  width: auto;
   height: inherit;
   object-fit: cover;
+  max-height: 100%;
 }
 
 /*? --------------DESCRIPTION-----------------*/
@@ -193,6 +220,7 @@
   font-size: 20px;
   line-height: 120%;
   margin-right: 40px;
+  cursor: pointer;
 }
 .hr {
   color: var(--main);

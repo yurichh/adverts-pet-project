@@ -50,19 +50,13 @@ const AdvertsWrapper = () => {
       {isLoading ? (
         <div className="loader"></div>
       ) : (
-        <>
-          {filteredAdverts.length === 0 ? (
-            <div className={styles.noAdverts}>Oooops... No adverts here</div>
-          ) : (
-            <ul className={styles.list}>
-              {filteredAdverts.map(advert => (
-                <li className={styles.cardWrapper} key={advert._id}>
-                  <AdvertItem advertData={advert} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
+        <ul className={styles.list}>
+          {filteredAdverts.map(advert => (
+            <li className={styles.cardWrapper} key={advert._id}>
+              <AdvertItem advertData={advert} />
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   );

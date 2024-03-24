@@ -47,10 +47,17 @@ const AdvertItem = ({ advertData }) => {
 
   return (
     <div className={styles.wrapper}>
-      <img src={gallery[0]} alt={name} className={styles.image} />
+      <img
+        src={gallery[0]}
+        alt={name}
+        className={styles.image}
+        onClick={() => setShowModal(true)}
+      />
       <div>
         <div className={styles.topLine}>
-          <h3 className={styles.name}>{name}</h3>
+          <h3 className={styles.name} onClick={() => setShowModal(true)}>
+            {name}
+          </h3>
           <p className={styles.price}>&euro;{price}.00</p>
           <button
             className={

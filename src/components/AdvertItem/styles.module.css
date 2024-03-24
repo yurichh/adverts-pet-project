@@ -12,6 +12,7 @@
 .name {
   font-size: 24px;
   line-height: 125%;
+  cursor: pointer;
 }
 .price {
   margin-left: auto;
@@ -69,6 +70,7 @@
   line-height: 150%;
 }
 .image {
+  cursor: pointer;
   width: 290px;
   height: 310px;
   object-fit: cover;
