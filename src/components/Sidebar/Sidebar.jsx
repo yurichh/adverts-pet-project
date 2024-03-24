@@ -1,4 +1,5 @@
 import styles from './styles.module.css';
+import sprite from '../../icons/icons.svg';
 
 const Sidebar = () => {
   return (
@@ -22,7 +23,7 @@ const Sidebar = () => {
           <legend className={styles.legend}>Vehicle equipment</legend>
           <hr className={styles.hr} />
           <ul className={styles.inputList}>
-            <li>
+            <li className={styles.inputItem}>
               <input
                 type="checkbox"
                 id="ac"
@@ -31,19 +32,25 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="ac" className={styles.inputLabel}>
+                <svg width={32} height={32} className={styles.listIcon}>
+                  <use xlinkHref={`${sprite}#icon-AC`} />
+                </svg>
                 AC
               </label>
             </li>
             <li>
               <input
                 type="checkbox"
-                id="automatic"
+                id="radio"
                 name="equipment"
-                value="automatic"
+                value="radio"
                 className={styles.input}
               />
-              <label htmlFor="automatic" className={styles.inputLabel}>
-                Automatic
+              <label htmlFor="radio" className={styles.inputLabel}>
+                <svg width={32} height={32} className={styles.listIcon2}>
+                  <use xlinkHref={`${sprite}#icon-radio`} />
+                </svg>
+                Radio
               </label>
             </li>
             <li>
@@ -55,6 +62,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="kitchen" className={styles.inputLabel}>
+                <svg width={32} height={32} className={styles.listIcon2}>
+                  <use xlinkHref={`${sprite}#icon-kitchen`} />
+                </svg>
                 Kitchen
               </label>
             </li>
@@ -67,6 +77,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="tv" className={styles.inputLabel}>
+                <svg width={32} height={32} className={styles.listIcon2}>
+                  <use xlinkHref={`${sprite}#icon-TV`} />
+                </svg>
                 TV
               </label>
             </li>
@@ -79,6 +92,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="shower" className={styles.inputLabel}>
+                <svg width={32} height={32} className={styles.listIcon2}>
+                  <use xlinkHref={`${sprite}#icon-shower`} />
+                </svg>
                 Shower/WC
               </label>
             </li>
@@ -97,6 +113,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="van" className={styles.inputLabel}>
+                <svg width={40} height={28} className={styles.listIcon}>
+                  <use xlinkHref={`${sprite}#icon-van`} />
+                </svg>
                 Van
               </label>
             </li>
@@ -109,6 +128,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="fully" className={styles.inputLabel}>
+                <svg width={40} height={28} className={styles.listIcon}>
+                  <use xlinkHref={`${sprite}#icon-fully`} />
+                </svg>
                 Fully Integrated
               </label>
             </li>
@@ -121,6 +143,9 @@ const Sidebar = () => {
                 className={styles.input}
               />
               <label htmlFor="alcove" className={styles.inputLabel}>
+                <svg width={40} height={28} className={styles.listIcon}>
+                  <use xlinkHref={`${sprite}#icon-alcove`} />
+                </svg>
                 Alcove
               </label>
             </li>

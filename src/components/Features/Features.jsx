@@ -50,12 +50,36 @@ const Features = ({ advertData }) => {
           </svg>
           <p className={styles.listItemText}>{details.beds} beds</p>
         </li>
-        {details.airConditioner === 1 && (
+        {details.airConditioner >= 1 && (
           <li className={styles.listItem}>
             <svg width={20} height={20} className={styles.listIcon}>
               <use xlinkHref={`${sprite}#icon-AC`} />
             </svg>
             <p className={styles.listItemText}>AC</p>
+          </li>
+        )}
+        {details.CD >= 1 && (
+          <li className={styles.listItem}>
+            <svg width={20} height={20} className={styles.listIcon2}>
+              <use xlinkHref={`${sprite}#icon-CD`} />
+            </svg>
+            <p className={styles.listItemText}>CD</p>
+          </li>
+        )}
+        {details.radio >= 1 && (
+          <li className={styles.listItem}>
+            <svg width={20} height={20} className={styles.listIcon2}>
+              <use xlinkHref={`${sprite}#icon-radio`} />
+            </svg>
+            <p className={styles.listItemText}>Radio</p>
+          </li>
+        )}
+        {details.hob >= 1 && (
+          <li className={styles.listItem}>
+            <svg width={20} height={20} className={styles.listIcon}>
+              <use xlinkHref={`${sprite}#icon-hob`} />
+            </svg>
+            <p className={styles.listItemText}>{details.hob} hob</p>
           </li>
         )}
       </ul>

@@ -12,14 +12,16 @@ const validationSchema = Joi.object({
   name: Joi.string()
     .min(3)
     .max(30)
-    .pattern(/^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+$/)
+    .pattern(
+      /^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+$/
+    ) /* allowed to ukrainian and english languages */
     .required(),
   email: Joi.string().email({
     minDomainSegments: 2,
     tlds: { allow: ['com', 'net'] },
   }),
   date: Joi.string().required(),
-  comment: Joi.string().max(200).optional(),
+  comment: Joi.string().max(200).optional() /* doesn`t work aaaaaaaaaaaaaaa */,
 });
 
 const Booking = () => {
@@ -48,6 +50,8 @@ const Booking = () => {
             return;
           }
           alert(JSON.stringify(data.value));
+          e.target.reset();
+          setDateRange('');
           e.preventDefault();
         }}
         className={styles.form}

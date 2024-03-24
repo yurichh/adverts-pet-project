@@ -109,7 +109,7 @@ const AdvertItem = ({ advertData }) => {
             </svg>
             <p className={styles.listItemText}>{engine}</p>
           </li>
-          {details.kitchen === 1 && (
+          {details.kitchen >= 1 && (
             <li className={styles.listItem}>
               <svg width={20} height={20} className={styles.listIcon2}>
                 <use xlinkHref={`${sprite}#icon-kitchen`} />
@@ -124,12 +124,20 @@ const AdvertItem = ({ advertData }) => {
             </svg>
             <p className={styles.listItemText}>{details.beds} beds</p>
           </li>
-          {details.airConditioner === 1 && (
+          {details.airConditioner >= 1 && (
             <li className={styles.listItem}>
               <svg width={20} height={20} className={styles.listIcon}>
                 <use xlinkHref={`${sprite}#icon-AC`} />
               </svg>
               <p className={styles.listItemText}>AC</p>
+            </li>
+          )}
+          {details.radio >= 1 && (
+            <li className={styles.listItem}>
+              <svg width={20} height={20} className={styles.listIcon2}>
+                <use xlinkHref={`${sprite}#icon-radio`} />
+              </svg>
+              <p className={styles.listItemText}>Radio</p>
             </li>
           )}
         </ul>
