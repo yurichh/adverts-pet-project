@@ -10,6 +10,7 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
     advertData;
 
   const [needScroll, setNeedScroll] = useState(scrollToReview);
+  const [showText, setShowText] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState('features');
 
@@ -74,7 +75,16 @@ const ModalCard = ({ advertData, onClose, scrollToReview = false }) => {
             </li>
           ))}
       </ul>
-      <p className={styles.description}>{description}</p>
+      <p
+        onClick={() => setShowText(prev => !prev)}
+        className={
+          showText
+            ? styles.description
+            : `${styles.description} ${styles.fullDescr}`
+        }
+      >
+        {description}
+      </p>
       <div className={styles.optionWrapper}>
         <input
           type="radio"

@@ -153,6 +153,7 @@
 /*? --------------DESCRIPTION-----------------*/
 
 .description {
+  cursor: pointer;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -162,6 +163,9 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: 24px;
+}
+.fullDescr {
+  -webkit-line-clamp: 999;
 }
 
 /*? --------------OPTIONS-----------------*/
