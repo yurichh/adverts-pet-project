@@ -4,7 +4,7 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState: {
     type: '',
-    equipment: ['radio', 'kitchen'],
+    equipment: [],
     location: '',
   },
   reducers: {
