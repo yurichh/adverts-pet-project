@@ -1,12 +1,18 @@
 # Camper Rentals
 
-Welcome to Camper Rentals! This project is a React & Redux-based website where users can browse and post advertisements for camper vans. Users have the ability to add advertisements to their favorites for easy access later.
+Welcome to Camper Rentals! This project is a React & Redux-based website where users can browse advertisements for camper vans. Users have the ability to add advertisements to their favorites for easy access later and filter listings based on various criteria.
+
+## Features
+
+- **Browse Campers**: Users can explore a variety of camper vans available for sale.
+- **Add to Favorites**: Simply click on the heart icon on each camper card to add it to your favorites list.
+- **Filter Listings**: Use the filters on the left side of the page to narrow down your search based on criteria such as form, location, etc.
 
 ## Technologies Used
 
 - **React**: Frontend UI is built using React, providing a fast and dynamic user experience.
 - **Redux**: Redux is used for state management, ensuring a predictable state container for the application.
-- **MockAPI**: MockAPI is used as the database to store camper advertisements.
+- **MockAPI**: MockAPI is used as the database to store camper advertisements and user favorites.
 
 ## Getting Started
 
@@ -28,7 +34,11 @@ To run this project locally, follow these steps:
 
 - **Browse Campers**: Explore the listed camper advertisements by navigating through the website.
 - **Add to Favorites**: Simply click on the heart icon on each camper card to add it to your favorites list.
-- **Filter Listings**: Use the filters on the left side of the page to narrow down your search based on criteria such as form, location, equipment, etc.
+- **Filter Listings**: Use the filters on the left side of the page to narrow down your search based on criteria such as form, location, etc.
+
+## Limitations
+
+- **Posting Advertisements**: Currently, users cannot post advertisements. This feature may be added in future updates.
 
 ## Contributing
 
